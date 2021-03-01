@@ -1,0 +1,15 @@
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import HomePage from './Page/HomePage';
+
+const Routes = () => {
+  return (
+    <div className="page-container">
+      <Switch>
+        <Route path='/' component={HomePage} exact />
+      </Switch>
+    </div>
+  );
+};
+
+export default Routes;
