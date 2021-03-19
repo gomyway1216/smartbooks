@@ -13,6 +13,13 @@ body, html {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+
+  .home-content {
+    color: white;
+    position: relative;
+    width: 50%;
+    align-self: center;
+  }
 }
 
 .home::before {
@@ -43,6 +50,33 @@ body, html {
     text-align: center;
     color: white;
 
+    .mission-title {
+      position: relative;
+      font-size: 2.5rem;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 120px;
+        height: 1px;
+        background: #ddd;
+        bottom: 1px;
+        left: calc(50% - 60px);
+      }
+  
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 40px;
+        height: 3px;
+        background: linear-gradient(70deg, blue, pink);
+        bottom: 0;
+        left: calc(50% - 20px);
+      }
+    }
+
     .mission-content-description {
       display: flex;
       flex-direction: column;
@@ -63,7 +97,30 @@ body, html {
   color: white;
 
   .team-title {
-    font-size: 300%;
+    position: relative;
+    font-size: 2.5rem;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 120px;
+      height: 1px;
+      background: #ddd;
+      bottom: 1px;
+      left: calc(50% - 60px);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(70deg, blue, pink);
+      bottom: 0;
+      left: calc(50% - 20px);
+    }
   }
 
   .team-images {
@@ -74,10 +131,17 @@ body, html {
     width: 80%;
     align-self: center;
 
+
+    .image-item:hover .overlay {
+      background-color: black;
+      opacity: 0.75;
+    }
+
     .image-item {
       margin: 1%;
       width: 15%;
       position: relative;
+
 
       .overlay {
         position: absolute;
@@ -90,6 +154,17 @@ body, html {
         opacity: 0;
         transition: .5s ease;
         background-color: #008CBA;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .member-info-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+          text-align: center;
+        }
       }
 
       .image-description {
@@ -114,31 +189,67 @@ body, html {
 
 .contact {
   margin-top: 10%;
-  padding-bottom: 10%;
+  padding-bottom: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   color: white;
 
-  .icon-description {
-    font-size: 150%;
+  .contact-title {
+    position: relative;
+    font-size: 2.5rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 120px;
+      height: 1px;
+      background: #ddd;
+      bottom: 1px;
+      left: calc(50% - 60px);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(70deg, blue, pink);
+      bottom: 0;
+      left: calc(50% - 20px);
+    }
   }
+
+  .contact-description {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    position: relative;
+    width: 80%;
+    align-self: center;
+  }
+
+  .email-icon {
+    cursor: pointer;
+
+    .icon-description {
+      font-size: 150%;
+    }
+  }
+
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: #008CBA;
-}
+.footer {
+  padding-bottom: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
 
-.image-item:hover .overlay {
-  opacity: 1;
+  .copyright {
+    color: white;
+  }
 }
