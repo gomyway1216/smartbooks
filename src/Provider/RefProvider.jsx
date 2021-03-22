@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useEffect, useState, createContext, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 export const RefContext = createContext();
@@ -9,6 +9,7 @@ export const useRefContext = () => {
 
 export const RefProvider = ({ children }) => {
   const [refs, setRefs] = useState([]);
+  const [displayedItemList, setDisplayedItemList] = useState([]);
 
   const addRefs = (newRefs) => {
     newRefs.forEach(newRef => {
@@ -17,11 +18,31 @@ export const RefProvider = ({ children }) => {
     setRefs(refs);
   };
 
+  useEffect(() => {
+    displayedItemList.push('home');
+    setDisplayedItemList(displayedItemList);
+  }, []);
+
+  const modifyDisplayedItemList = (itemName, isVisible) => {
+    let newDisplayItemList = [...displayedItemList];
+    if(isVisible) {
+      newDisplayItemList.push(itemName);
+    } else {
+      newDisplayItemList = displayedItemList.filter(item => {
+        return item !== itemName;
+      });
+    }
+    setDisplayedItemList(newDisplayItemList);
+  };
+
   return (
     <RefContext.Provider
       value={{
         refs,
-        addRefs
+        addRefs,
+        displayedItemList,
+        setDisplayedItemList,
+        modifyDisplayedItemList
       }}
     >
       {children}

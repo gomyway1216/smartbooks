@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppBar, Toolbar, Typography, List, ListItem, ListItemText, Drawer, IconButton, makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useRefContext } from '../Provider/RefProvider';
@@ -35,8 +35,16 @@ const ApplicationBar = () => {
   const classes = useStyles();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { width } = useWindowDimensions();
-  const { refs } = useRefContext();
+  const { refs, displayedItemList, setDisplayedItemList } = useRefContext();
   const [selectedItem, setSelectedItem] = useState('');
+
+  useEffect(() => {
+    if(displayedItemList.length > 0) {
+      setSelectedItem(displayedItemList[0]);
+    } else {
+      setSelectedItem('');
+    }
+  }, [displayedItemList, setDisplayedItemList]);
 
   const toggleDrawer = (open) => (event) => {
     if(event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -46,7 +54,6 @@ const ApplicationBar = () => {
   };
 
   const handleItemClick = (itemName) => () => {
-    setSelectedItem(itemName);
     scrollToDiv(itemName, 64);
   };
 
