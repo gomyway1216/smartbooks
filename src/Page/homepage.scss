@@ -1,11 +1,9 @@
 body, html {
-  height: 100%;
   background-color: black;
 }
 
 .home {
   position: relative; 
-  background-color: blue;
   background-image: url(../img/home.jpg);
   background-size: cover;
   height: 100vh;
@@ -34,14 +32,14 @@ body, html {
 
 .mission {
   background-image: url(../img/mission.jpg);
-  height: 50vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 
   .mission-content {
-    background: rgba(0,0,0, 0.5);
+    background: rgba(0,0,0, 0.8);
     width: 100%;
     height: 100%;
     display: flex;
@@ -49,40 +47,13 @@ body, html {
     justify-content: center;
     text-align: center;
     color: white;
-
-    .mission-title {
-      position: relative;
-      font-size: 2.5rem;
-      
-      &::before {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 120px;
-        height: 1px;
-        background: #ddd;
-        bottom: 1px;
-        left: calc(50% - 60px);
-      }
-  
-      &::after {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 40px;
-        height: 3px;
-        background: linear-gradient(70deg, blue, pink);
-        bottom: 0;
-        left: calc(50% - 20px);
-      }
-    }
+    padding: 60px 0 40px 0;
 
     .mission-content-description {
       display: flex;
       flex-direction: column;
       align-self: center;
       width: 70%;
-      font-size: 120%;
     }
   }
 }
@@ -96,40 +67,13 @@ body, html {
   text-align: center;
   color: white;
 
-  .team-title {
-    position: relative;
-    font-size: 2.5rem;
-    
-    &::before {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 120px;
-      height: 1px;
-      background: #ddd;
-      bottom: 1px;
-      left: calc(50% - 60px);
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 40px;
-      height: 3px;
-      background: linear-gradient(70deg, blue, pink);
-      bottom: 0;
-      left: calc(50% - 20px);
-    }
-  }
-
   .team-images {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     position: relative;
     width: 80%;
     align-self: center;
+    flex-wrap: wrap;
 
 
     .image-item:hover .overlay {
@@ -139,7 +83,8 @@ body, html {
 
     .image-item {
       margin: 1%;
-      width: 15%;
+      width: 100%;
+      max-width: 250px;
       position: relative;
 
 
@@ -158,12 +103,11 @@ body, html {
         flex-direction: column;
         justify-content: center;
 
-        .member-info-content {
+        .member-info {
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          text-align: center;
-          text-align: center;
+          justify-content: space-evenly;
+          height: 80%;
         }
       }
 
@@ -196,33 +140,6 @@ body, html {
   text-align: center;
   color: white;
 
-  .contact-title {
-    position: relative;
-    font-size: 2.5rem;
-
-    &::before {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 120px;
-      height: 1px;
-      background: #ddd;
-      bottom: 1px;
-      left: calc(50% - 60px);
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 40px;
-      height: 3px;
-      background: linear-gradient(70deg, blue, pink);
-      bottom: 0;
-      left: calc(50% - 20px);
-    }
-  }
-
   .contact-description {
     display: flex;
     flex-direction: row;
@@ -251,5 +168,76 @@ body, html {
 
   .copyright {
     color: white;
+  }
+}
+
+.title-large {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+
+.title {
+  position: relative;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 1px;
+    left: calc(50% - 60px);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(70deg, blue, pink);
+    bottom: 0;
+    left: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .title-large {
+    font-size: 28px;
+  }
+
+  .title {
+    position: relative;
+    font-size: 2.0rem;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 120px;
+      height: 1px;
+      background: #ddd;
+      bottom: 1px;
+      left: calc(50% - 60px);
+    }
+  
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(70deg, blue, pink);
+      bottom: 0;
+      left: calc(50% - 20px);
+    }
+  }
+
+  p {
+    font-size: small;
   }
 }
