@@ -51,5 +51,5 @@ export const RefProvider = ({ children }) => {
 };
 
 RefProvider.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.any
 };

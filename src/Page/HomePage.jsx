@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
+import { makeStyles, Button } from '@material-ui/core';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -11,7 +12,21 @@ import hanaImage from '../img/hana.jpg';
 import yudaiImage from '../img/Yudai-memoji1.png';
 import './homepage.scss';
 
+const useStyles = makeStyles({
+  root: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    border: 0,
+    borderRadius: 3,
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+  },
+});
+
+
 const Home = () => {
+  const classes = useStyles();
   const { addRefs, modifyDisplayedItemList } = useRefContext();
   const homeRef = useRef();
   const missionRef = useRef();
@@ -38,8 +53,9 @@ const Home = () => {
         <VisibilitySensor key='home' onChange={onChange('home')}>
           <div className='home-content'>
             <div className='title-large'>AI × オーディオブック</div>
-            <p>忙しい現代人のスキマ時間に本を聴いてもらうためのオーディオブックアプリ「SmartBooks」を開発しています。AIによる音声合成によって、「
+            <p>忙しい現代人のスキマ時間に本を聴いてもらうためのオーディオブックアプリ「SmartBooks」を開発しています。AIを活用して、「
             手頃な値段・豊富な品揃え・素早いオーディオブック化」を実現します。</p>
+            <Button className={classes.root}>Coming soon...</Button>
           </div> 
         </VisibilitySensor>   
       </div>  
