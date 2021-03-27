@@ -53,8 +53,7 @@ const Home = () => {
         <VisibilitySensor key='home' onChange={onChange('home')}>
           <div className='home-content'>
             <div className='title-large'>AI × オーディオブック</div>
-            <p>忙しい現代人のスキマ時間に本を聴いてもらうためのオーディオブックアプリ「SmartBooks」を開発しています。AIを活用して、「
-            手頃な値段・豊富な品揃え・素早いオーディオブック化」を実現します。</p>
+            <p>忙しい現代人のスキマ時間に本を聴いてもらうためのオーディオブックアプリ「SmartBooks」を開発しています。AIを活用して、「手頃な値段・豊富な品揃え・素早いオーディオブック化」を実現します。</p>
             <Button className={classes.root}>Coming soon...</Button>
           </div> 
         </VisibilitySensor>   
