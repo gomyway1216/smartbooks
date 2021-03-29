@@ -8,6 +8,7 @@ const Routes = () => {
     <div className="page-container">
       <Switch>
         <Route path='/' component={HomePage} exact />
+        <Route path='/about' component={HomePage} exact />
       </Switch>
     </div>
   );
