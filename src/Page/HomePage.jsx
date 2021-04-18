@@ -40,7 +40,7 @@ const Home = () => {
   }, []);
 
   const handleSendEmail = () => {
-    window.open('mailto:smartbooksjapan@gmail.com?subject=件名&body=お問い合わせ内容');
+    window.open('mailto:admin@smartbooks.jp?subject=件名&body=お問い合わせ内容');
   };
 
   const onChange = (itemName) => (isVisible) => {
@@ -111,7 +111,7 @@ const Home = () => {
                     <a href="https://www.facebook.com/saurabh0598">
                       <FacebookIcon style={{ color: 'white' }} fontSize='large'/>
                     </a>
-                    <a href="https://www.linkedin.com/in/naoto-tomita-684b2b1a9">
+                    <a href="https://www.linkedin.com/in/saurabh-kumar-82417a137/">
                       <LinkedInIcon style={{ color: 'white' }} fontSize='large'/>
                     </a>
                   </div>
