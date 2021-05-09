@@ -83,8 +83,8 @@ const ApplicationBar = () => {
         <ListItem button key="TEAM" onClick={()=> scrollToDiv('team', 56)}>
           <ListItemText primary="TEAM" />
         </ListItem>
-        <ListItem button key="CONTACT" onClick={()=> scrollToDiv('contact', 56)}>
-          <ListItemText primary="CONTACT" />
+        <ListItem button key="INFORMATION" onClick={()=> scrollToDiv('information', 56)}>
+          <ListItemText primary="INFORMATION" />
         </ListItem>
       </List>
     </div>
@@ -126,8 +126,8 @@ const ApplicationBar = () => {
               <div onClick={handleItemClick('team')} style={{cursor: 'pointer', color: selectedItem === 'team' ? 'blue' : 'white'}}>
                 TEAM
               </div>
-              <div onClick={handleItemClick('contact')} style={{cursor: 'pointer', color: selectedItem === 'contact' ? 'blue' : 'white'}}>
-                CONTACT
+              <div onClick={handleItemClick('information')} style={{cursor: 'pointer', color: selectedItem === 'information' ? 'blue' : 'white'}}>
+                INFORMATION
               </div>
             </div>
             }

@@ -10,6 +10,11 @@ import naotoImage from '../img/naoto.jpg';
 import kumarImage from '../img/kumar.jpg';
 import hanaImage from '../img/hana.jpg';
 import yudaiImage from '../img/Yudai-memoji1.png';
+import googleLogo from '../img/google.svg';
+import googleLogoSmall from '../img/google-small.svg';
+import titLogo from '../img/TokyoTech.svg';
+import titLogoSmall from '../img/TokyoTech-small.svg';
+import useWindowDimensions from '../Hook/useWindowDimensions';
 import './homepage.scss';
 
 const useStyles = makeStyles({
@@ -31,11 +36,13 @@ const Home = () => {
   const homeRef = useRef();
   const missionRef = useRef();
   const teamRef = useRef();
+  const informationRef = useRef();
   const contactRef = useRef();
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
     const refList = [{ key: 'home', ref: homeRef } , { key: 'mission', ref: missionRef }, 
-      { key: 'team', ref: teamRef }, { key: 'contact', ref: contactRef }];
+      { key: 'team', ref: teamRef }, {key: 'information', ref: informationRef }, { key: 'contact', ref: contactRef }];
     addRefs(refList);
   }, []);
 
@@ -161,11 +168,56 @@ const Home = () => {
           </div>
         </div>
       </VisibilitySensor>
+      <VisibilitySensor key='information' onChange={onChange('information')}>
+        <div className='information' name='information' ref={informationRef}>
+          <div className='title'>企業情報</div>
+          <div className='item-container'>
+            <div className='item-title' >企業名</div>
+            <div>スマートブックス株式会社（SmartBooks Inc.）</div>
+          </div>
+          <div className='item-container'>
+            <div className='item-title'>代表者</div>
+            <div>冨田直人</div>
+          </div>
+          <div className='item-container'>
+            <div className='item-title'>所在地</div>
+            <div>東京都世田谷区南烏山５－１－１９</div>
+          </div>
+          <div className='item-container'>
+            <div className='item-title'>事業内容</div>
+            <div>アプリケーションの企画・開発・運営</div>
+          </div>
+          <div className='item-container'>
+            <div className='item-title'>創立</div>
+            <div>2021年3月19日</div>
+          </div>
+          <div className='item-container'>
+            <div className='item-title'>電話番号</div>
+            <div>070-8409-8610</div>
+          </div>
+        </div>
+      </VisibilitySensor>
+      <VisibilitySensor key='support' onChange={onChange('support')}>
+        <div className='support' name='support'>
+          <div className='title'>SPONSOR</div>
+          <p className='description'>スマートブックス株式会社は、以下の組織から支援を受けています。</p>
+          <div className='logo-list'>
+            <a className='logo' href="https://startup.google.com" >
+              { width > 768 && <img src={googleLogo} alt="Google Logo"/>}
+              { width <= 768 && <img src={googleLogoSmall} alt="Google Logo"/>}
+            </a>
+            <a className='logo' href="https://www.titech.ac.jp" >
+              { width > 768 && <img src={titLogo} alt="TIT Logo"/>}
+              { width <= 768 && <img src={titLogoSmall} alt="TIT Logo"/>}
+            </a>
+          </div>         
+        </div>
+      </VisibilitySensor>
       <VisibilitySensor key='contact' onChange={onChange('contact')}>
         <div className='contact' name='contact' ref={contactRef}>
           <div className='title'>CONTACT US</div>
           <div className='contact-description'>
-            <p>広告掲載、作品のご投稿、ご取材等、法人のお客様からのお問合せは以下のアドレスからお願いいたします。</p>
+            <p>広告掲載、作品のご投稿、ご取材等、法人のお客様からのお問合せは以下よりお願いいたします。</p>
           </div>
           <div>
             <div className='email-icon' onClick={handleSendEmail}>
