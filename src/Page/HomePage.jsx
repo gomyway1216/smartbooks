@@ -200,6 +200,7 @@ const Home = () => {
       <VisibilitySensor key='support' onChange={onChange('support')}>
         <div className='support' name='support'>
           <div className='title'>SPONSOR</div>
+          {/* <div className='support-content'> */}
           <p className='description'>スマートブックス株式会社は、以下の組織から支援を受けています。</p>
           <div className='logo-list'>
             <a className='logo' href="https://startup.google.com" >
@@ -210,7 +211,8 @@ const Home = () => {
               { width > 768 && <img src={titLogo} alt="TIT Logo"/>}
               { width <= 768 && <img src={titLogoSmall} alt="TIT Logo"/>}
             </a>
-          </div>         
+          </div>    
+          {/* </div>      */}
         </div>
       </VisibilitySensor>
       <VisibilitySensor key='contact' onChange={onChange('contact')}>
