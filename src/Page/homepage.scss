@@ -132,6 +132,45 @@ body, html {
   }
 }
 
+.support {
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: white;
+
+  .description {
+    margin-bottom: 10px;
+  }
+
+  .logo-list {
+    display: flex;
+    justify-content: center;
+    
+    .logo {
+      margin: 20px;
+      text-align: center; 
+    }
+  }
+}
+
+.information {
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  .item-container {
+    margin-top: 20px;
+
+    .item-title {
+      font-weight: bold;
+    }
+  }
+}
+
 .contact {
   padding-top: 70px;
   display: flex;
@@ -157,7 +196,6 @@ body, html {
       font-size: 150%;
     }
   }
-
 }
 
 .footer {
