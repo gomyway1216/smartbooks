@@ -132,6 +132,24 @@ body, html {
   }
 }
 
+.information {
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  .item-container {
+    margin-top: 20px;
+    width: 80%;
+    align-self: center;
+
+    .item-title {
+      font-weight: bold;
+    }
+  }
+}
+
 .support {
   padding-top: 70px;
   display: flex;
@@ -142,6 +160,8 @@ body, html {
 
   .description {
     margin-bottom: 10px;
+    width: 80%;
+    align-self: center;
   }
 
   .logo-list {
@@ -151,22 +171,6 @@ body, html {
     .logo {
       margin: 20px;
       text-align: center; 
-    }
-  }
-}
-
-.information {
-  padding-top: 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  .item-container {
-    margin-top: 20px;
-
-    .item-title {
-      font-weight: bold;
     }
   }
 }
@@ -280,6 +284,17 @@ body, html {
   .home {
     .home-content {
       width: 80%;
+    }
+  }
+
+  // .support-content {
+  //   width: 80%;
+  // }
+  .information {
+    .item-container {
+      .item-title {
+        font-size: small;
+      }
     }
   }
 
