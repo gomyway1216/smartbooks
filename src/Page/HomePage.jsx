@@ -168,6 +168,24 @@ const Home = () => {
           </div>
         </div>
       </VisibilitySensor>
+      <VisibilitySensor key='support' onChange={onChange('support')}>
+        <div className='support' name='support'>
+          <div className='title'>SPONSOR</div>
+          {/* <div className='support-content'> */}
+          <p className='description'>スマートブックス株式会社は、以下の組織から支援を受けています。</p>
+          <div className='logo-list'>
+            <a className='logo' href="https://startup.google.com" >
+              { width > 768 && <img src={googleLogo} alt="Google Logo"/>}
+              { width <= 768 && <img src={googleLogoSmall} alt="Google Logo"/>}
+            </a>
+            <a className='logo' href="https://www.titech.ac.jp" >
+              { width > 768 && <img src={titLogo} alt="TIT Logo"/>}
+              { width <= 768 && <img src={titLogoSmall} alt="TIT Logo"/>}
+            </a>
+          </div>    
+          {/* </div>      */}
+        </div>
+      </VisibilitySensor>
       <VisibilitySensor key='information' onChange={onChange('information')}>
         <div className='information' name='information' ref={informationRef}>
           <div className='title'>企業情報</div>
@@ -195,24 +213,6 @@ const Home = () => {
             <div className='item-title'>電話番号</div>
             <div>070-8409-8610</div>
           </div>
-        </div>
-      </VisibilitySensor>
-      <VisibilitySensor key='support' onChange={onChange('support')}>
-        <div className='support' name='support'>
-          <div className='title'>SPONSOR</div>
-          {/* <div className='support-content'> */}
-          <p className='description'>スマートブックス株式会社は、以下の組織から支援を受けています。</p>
-          <div className='logo-list'>
-            <a className='logo' href="https://startup.google.com" >
-              { width > 768 && <img src={googleLogo} alt="Google Logo"/>}
-              { width <= 768 && <img src={googleLogoSmall} alt="Google Logo"/>}
-            </a>
-            <a className='logo' href="https://www.titech.ac.jp" >
-              { width > 768 && <img src={titLogo} alt="TIT Logo"/>}
-              { width <= 768 && <img src={titLogoSmall} alt="TIT Logo"/>}
-            </a>
-          </div>    
-          {/* </div>      */}
         </div>
       </VisibilitySensor>
       <VisibilitySensor key='contact' onChange={onChange('contact')}>
