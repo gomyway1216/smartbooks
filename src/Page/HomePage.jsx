@@ -15,7 +15,16 @@ import googleLogoSmall from '../img/google-small.svg';
 import titLogo from '../img/TokyoTech.svg';
 import titLogoSmall from '../img/TokyoTech-small.svg';
 import useWindowDimensions from '../Hook/useWindowDimensions';
+import smartbooksLogo from '../img/logo_smartbooks.png';
+import screenImage from '../img/screen1.png';
+import sampleAudio from '../sound/sample_botchan.mp3';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+// import AudioPlayer from 'material-ui-audio-player';
+import AudioPlayer from 'react-h5-audio-player';
+import ReactAudioPlayer from 'react-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 import './homepage.scss';
+
 
 const useStyles = makeStyles({
   root: {
@@ -29,12 +38,20 @@ const useStyles = makeStyles({
   },
 });
 
+const muiTheme = createMuiTheme({});
+
+const src = [
+  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+];
+
 
 const Home = () => {
   const classes = useStyles();
   const { addRefs, modifyDisplayedItemList } = useRefContext();
   const homeRef = useRef();
   const missionRef = useRef();
+  const contentsRef = useRef();
   const teamRef = useRef();
   const informationRef = useRef();
   const contactRef = useRef();
@@ -54,6 +71,16 @@ const Home = () => {
     modifyDisplayedItemList(itemName, isVisible);
   };
 
+  const Player = () => (
+    <AudioPlayer
+      autoPlay
+      src={sampleAudio}
+      onPlay={e => console.log('onPlay')}
+      // other props here
+      showSkipControls
+    />
+  );
+
   return (
     <div style={{ scrollMarginTop: 280, scrollPaddingTop: 280}}>         
       <div className='home' name='home' ref={homeRef} >   
@@ -65,6 +92,43 @@ const Home = () => {
           </div> 
         </VisibilitySensor>   
       </div>  
+      <VisibilitySensor key="contents" onChange={onChange('contents')}>
+        <div className="contents" name="contents" ref={contentsRef}>
+          <div className="contents-container">
+            <div className="logo-container">
+              <img className="smartbooks-logo" src={smartbooksLogo} alt="smartbooks logo" />
+            </div>
+            <div className="contents-main">
+              <div className="screen-container">
+                <img className="screen-image" src={screenImage} alt="screen image" />
+              </div>
+              <div className="description-container">
+                <div className="description-content">
+                  <div className="description-start">ナレーターは</div>
+                  <div className="description-important">AI</div>
+                  <div className="description">ニューラルネットワークを活用した音声合成モデルを用いて、自然で聴き取りやすいオーディオブックを制作しています。</div>
+                </div>
+                <div className="description-content">
+                  <div className="description-start">オーディオ化は</div>
+                  <div className="description-important">24時間</div>
+                  <div className="description">AIによるオーディオ化までの期間は約24時間。従来２ヶ月は待たなければいけなかった話題の新作書籍もすぐに聴くことができます。</div>
+                </div>
+              </div>      
+            </div>
+            <div className="audio-player">
+              <div>サンプルを聴く</div>
+              <div>芥川龍之介『坊ちゃん』冒頭</div>
+              <audio
+                controls
+                controlsList="nodownload"
+                src={sampleAudio}>
+                  Your browser does not support the
+                <code>audio</code> element.
+              </audio>
+            </div>
+          </div>
+        </div>
+      </VisibilitySensor>
       <VisibilitySensor key='mission' onChange={onChange('mission')}>
         <div className='mission' name='mission' ref={missionRef}>    
           <div className='mission-content'>
