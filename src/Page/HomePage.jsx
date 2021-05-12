@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
+import useWindowDimensions from '../Hook/useWindowDimensions';
 import { makeStyles, Button } from '@material-ui/core';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -14,17 +15,10 @@ import googleLogo from '../img/google.svg';
 import googleLogoSmall from '../img/google-small.svg';
 import titLogo from '../img/TokyoTech.svg';
 import titLogoSmall from '../img/TokyoTech-small.svg';
-import useWindowDimensions from '../Hook/useWindowDimensions';
 import smartbooksLogo from '../img/logo_smartbooks.png';
 import screenImage from '../img/screen1.png';
 import sampleAudio from '../sound/sample_botchan.mp3';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core';
-// import AudioPlayer from 'material-ui-audio-player';
-import AudioPlayer from 'react-h5-audio-player';
-import ReactAudioPlayer from 'react-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
 import './homepage.scss';
-
 
 const useStyles = makeStyles({
   root: {
@@ -37,14 +31,6 @@ const useStyles = makeStyles({
     padding: '0 30px',
   },
 });
-
-const muiTheme = createMuiTheme({});
-
-const src = [
-  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-];
-
 
 const Home = () => {
   const classes = useStyles();
@@ -70,16 +56,6 @@ const Home = () => {
   const onChange = (itemName) => (isVisible) => {
     modifyDisplayedItemList(itemName, isVisible);
   };
-
-  const Player = () => (
-    <AudioPlayer
-      autoPlay
-      src={sampleAudio}
-      onPlay={e => console.log('onPlay')}
-      // other props here
-      showSkipControls
-    />
-  );
 
   return (
     <div style={{ scrollMarginTop: 280, scrollPaddingTop: 280}}>         
@@ -235,7 +211,6 @@ const Home = () => {
       <VisibilitySensor key='support' onChange={onChange('support')}>
         <div className='support' name='support'>
           <div className='title'>SPONSOR</div>
-          {/* <div className='support-content'> */}
           <p className='description'>スマートブックス株式会社は、以下の組織から支援を受けています。</p>
           <div className='logo-list'>
             <a className='logo' href="https://startup.google.com" >
@@ -246,8 +221,7 @@ const Home = () => {
               { width > 768 && <img src={titLogo} alt="TIT Logo"/>}
               { width <= 768 && <img src={titLogoSmall} alt="TIT Logo"/>}
             </a>
-          </div>    
-          {/* </div>      */}
+          </div>
         </div>
       </VisibilitySensor>
       <VisibilitySensor key='information' onChange={onChange('information')}>
