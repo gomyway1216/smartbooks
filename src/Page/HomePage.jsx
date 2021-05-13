@@ -44,7 +44,7 @@ const Home = () => {
   const { width } = useWindowDimensions();
 
   useEffect(() => {
-    const refList = [{ key: 'home', ref: homeRef } , { key: 'mission', ref: missionRef }, 
+    const refList = [{ key: 'home', ref: homeRef } , { key: 'mission', ref: missionRef }, {key: 'contents', ref: contentsRef },
       { key: 'team', ref: teamRef }, {key: 'information', ref: informationRef }, { key: 'contact', ref: contactRef }];
     addRefs(refList);
   }, []);
@@ -92,8 +92,10 @@ const Home = () => {
               </div>      
             </div>
             <div className="audio-player">
-              <div>サンプルを聴く</div>
-              <div>芥川龍之介『坊ちゃん』冒頭</div>
+              <div className="description">
+                <div className="description-title">サンプルを聴く</div>
+                <div className="description-content">芥川龍之介『坊ちゃん』冒頭</div>
+              </div>
               <audio
                 controls
                 controlsList="nodownload"
