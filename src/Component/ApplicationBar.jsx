@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { AppBar, Toolbar, Typography, List, ListItem, ListItemText, Drawer, IconButton, makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core';
+import { AppBar, Toolbar, List, ListItem, ListItemText, Drawer, IconButton, makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useRefContext } from '../Provider/RefProvider';
 import useWindowDimensions from '../Hook/useWindowDimensions';
+import SBLogo from '../img/SB_LOGO_4C_white1.png';
 
 const useStyles = makeStyles({
   paper: {
@@ -77,8 +78,11 @@ const ApplicationBar = () => {
         <ListItem button key="Home" onClick={()=> scrollToDiv('home', 56)}>
           <ListItemText primary="HOME" />
         </ListItem>
-        <ListItem button key="OUR MISSION" onClick={()=> scrollToDiv('mission', 56)}>
-          <ListItemText primary="OUR MISSION" />
+        <ListItem button key="CONTENTS" onClick={()=> scrollToDiv('contents', 56)}>
+          <ListItemText primary="CONTENTS" />
+        </ListItem>
+        <ListItem button key="MISSION" onClick={()=> scrollToDiv('mission', 56)}>
+          <ListItemText primary="MISSION" />
         </ListItem>
         <ListItem button key="TEAM" onClick={()=> scrollToDiv('team', 56)}>
           <ListItemText primary="TEAM" />
@@ -95,10 +99,10 @@ const ApplicationBar = () => {
       <div>
         <AppBar className={classes.appBar}>
           <Toolbar style={{ display: 'flex', justifyContent: 'space-between'}}>
-            <div onClick={handleItemClick('home')}>
-              <Typography theme={theme} style={{ cursor: 'pointer', fontSize: width <= 768 ? 18 : 25, letterSpacing: '4px', fontWeight: 700}}> 
-                SmartBooks Inc.
-              </Typography>
+            <div onClick={handleItemClick('home')} style={{display: 'flex'}}>
+              <div style={{width: '150px'}}>
+                <img src={SBLogo} style={{ display: 'block', width: '100%', height: 'auto' }}/>
+              </div>
             </div>
             { width <= 768 && 
             <>
@@ -116,12 +120,15 @@ const ApplicationBar = () => {
             </>
             } 
             { width > 768 &&
-            <div style={{ width: '400px', display: 'flex', justifyContent: 'space-evenly'}}>
+            <div style={{ width: '500px', display: 'flex', justifyContent: 'space-evenly'}}>
               <div onClick={handleItemClick('home')} style={{cursor: 'pointer', color: selectedItem === 'home' ? 'blue' : 'white'}} >
                 HOME
               </div>
+              <div onClick={handleItemClick('contents')} style={{cursor: 'pointer', color: selectedItem === 'contents' ? 'blue' : 'white'}}>
+                CONTENTS
+              </div>
               <div onClick={handleItemClick('mission')} style={{cursor: 'pointer', color: selectedItem === 'mission' ? 'blue' : 'white'}}>
-                OUR MISSION
+                MISSION
               </div>
               <div onClick={handleItemClick('team')} style={{cursor: 'pointer', color: selectedItem === 'team' ? 'blue' : 'white'}}>
                 TEAM

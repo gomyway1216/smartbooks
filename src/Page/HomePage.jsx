@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
+import useWindowDimensions from '../Hook/useWindowDimensions';
 import { makeStyles, Button } from '@material-ui/core';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -14,7 +15,9 @@ import googleLogo from '../img/google.svg';
 import googleLogoSmall from '../img/google-small.svg';
 import titLogo from '../img/TokyoTech.svg';
 import titLogoSmall from '../img/TokyoTech-small.svg';
-import useWindowDimensions from '../Hook/useWindowDimensions';
+import smartbooksLogo from '../img/logo_smartbooks.png';
+import screenImage from '../img/screen1.png';
+import sampleAudio from '../sound/sample_botchan.mp3';
 import './homepage.scss';
 
 const useStyles = makeStyles({
@@ -29,19 +32,19 @@ const useStyles = makeStyles({
   },
 });
 
-
 const Home = () => {
   const classes = useStyles();
   const { addRefs, modifyDisplayedItemList } = useRefContext();
   const homeRef = useRef();
   const missionRef = useRef();
+  const contentsRef = useRef();
   const teamRef = useRef();
   const informationRef = useRef();
   const contactRef = useRef();
   const { width } = useWindowDimensions();
 
   useEffect(() => {
-    const refList = [{ key: 'home', ref: homeRef } , { key: 'mission', ref: missionRef }, 
+    const refList = [{ key: 'home', ref: homeRef } , { key: 'mission', ref: missionRef }, {key: 'contents', ref: contentsRef },
       { key: 'team', ref: teamRef }, {key: 'information', ref: informationRef }, { key: 'contact', ref: contactRef }];
     addRefs(refList);
   }, []);
@@ -65,6 +68,45 @@ const Home = () => {
           </div> 
         </VisibilitySensor>   
       </div>  
+      <VisibilitySensor key="contents" onChange={onChange('contents')}>
+        <div className="contents" name="contents" ref={contentsRef}>
+          <div className="contents-container">
+            <div className="logo-container">
+              <img className="smartbooks-logo" src={smartbooksLogo} alt="smartbooks logo" />
+            </div>
+            <div className="contents-main">
+              <div className="screen-container">
+                <img className="screen-image" src={screenImage} alt="screen image" />
+              </div>
+              <div className="description-container">
+                <div className="description-content">
+                  <div className="description-start">ナレーターは</div>
+                  <div className="description-important">AI</div>
+                  <div className="description">ニューラルネットワークを活用した音声合成モデルを用いて、自然で聴き取りやすいオーディオブックを制作しています。</div>
+                </div>
+                <div className="description-content">
+                  <div className="description-start">オーディオ化は</div>
+                  <div className="description-important">24時間</div>
+                  <div className="description">AIによるオーディオ化までの期間は約24時間。従来２ヶ月は待たなければいけなかった話題の新作書籍もすぐに聴くことができます。</div>
+                </div>
+              </div>      
+            </div>
+            <div className="audio-player">
+              <div className="description">
+                <div className="description-title">サンプルを聴く</div>
+                <div className="description-content">芥川龍之介『坊ちゃん』冒頭</div>
+              </div>
+              <audio
+                controls
+                controlsList="nodownload"
+                src={sampleAudio}>
+                  Your browser does not support the
+                <code>audio</code> element.
+              </audio>
+            </div>
+          </div>
+        </div>
+      </VisibilitySensor>
       <VisibilitySensor key='mission' onChange={onChange('mission')}>
         <div className='mission' name='mission' ref={missionRef}>    
           <div className='mission-content'>
@@ -171,7 +213,6 @@ const Home = () => {
       <VisibilitySensor key='support' onChange={onChange('support')}>
         <div className='support' name='support'>
           <div className='title'>SPONSOR</div>
-          {/* <div className='support-content'> */}
           <p className='description'>スマートブックス株式会社は、以下の組織から支援を受けています。</p>
           <div className='logo-list'>
             <a className='logo' href="https://startup.google.com" >
@@ -182,8 +223,7 @@ const Home = () => {
               { width > 768 && <img src={titLogo} alt="TIT Logo"/>}
               { width <= 768 && <img src={titLogoSmall} alt="TIT Logo"/>}
             </a>
-          </div>    
-          {/* </div>      */}
+          </div>
         </div>
       </VisibilitySensor>
       <VisibilitySensor key='information' onChange={onChange('information')}>
