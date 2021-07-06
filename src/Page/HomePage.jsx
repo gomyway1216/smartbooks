@@ -210,7 +210,7 @@ const Home = () => {
               <img className='member-image' src={utkarshImage} alt="Naoto Image"/>
               <div className='overlay'>
                 <div className="member-info">
-                  <div>ウトゥカーシュ・シン</div>
+                  <div>ウトゥカルシュ・シング</div>
                   <span>Software Engineer</span>
                   <div className='social-icons'>
                     <a>
