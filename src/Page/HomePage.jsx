@@ -11,6 +11,7 @@ import naotoImage from '../img/naoto.jpg';
 import kumarImage from '../img/kumar.jpg';
 import hanaImage from '../img/hana.jpg';
 import yudaiImage from '../img/Yudai-memoji1.png';
+import utkarshImage from '../img/utkarsh.png';
 import googleLogo from '../img/google.svg';
 import googleLogoSmall from '../img/google-small.svg';
 import titLogo from '../img/TokyoTech.svg';
@@ -112,13 +113,11 @@ const Home = () => {
           <div className='mission-content'>
             <div className='title'>OUR MISSION</div>
             <div className='mission-content-description'>
-              <p>-  忙しい現代人の読書離れの解決  -</p>
-              <p>「日本人の約半分は1ヶ月に1冊も本を読まない」<br/>
-              「日本人の65.1％が読書量は以前に比べて減っている」<br/>
-              「そのうち過半数は仕事や勉強が忙しくて読む時間がないと回答」</p>
-              <p>このように、現代人の読書離れが進んでいる一方、人々の読書へのモチベーションが下がっている訳ではないこともわかっています。
-              smartbooksはそんな「読みたい本があるが忙しくて読む時間がない」という方々が、電車の中や家事をやっている時間などのスキマ時間で本を楽しめるように、
-              AIを活用して、オーディオブックをより「手頃な値段・豊富な品揃え・素早いリリース」で提供することで、現代人の読書離れにアプローチします。</p>
+              <p>-「日本人の読解力」の向上 -</p>
+            </div>
+            <div className='mission-content-description-detail'>
+              <p>最新の国際学力調査（PISA）の結果では、日本人は数学や科学のリテラシーが高い（それぞれ6位・5位）のに対して、読解力が年々下がっている（15位）ことが判明しています。また、OECDは読解力と読書量に相関関係があることを示しており、実際、日本人は国際的にも読書量が少なく、同時に年々減っていることもわかっています（文部科学省調べ）。</p>
+              <p>この背景には、若い世代を中心に読書にまとまった時間を取れなかったり、SNSなどで情報に「受動的に」接することに慣れてしまい、活字離れが進んでいることが挙げられます。オーディオブックはスキマ時間に受動的に本を聴くことができる上、オーディオブックをきっかけに目を使っての読書量も増える傾向にあることがわかっているため、私たちはAIを活用したオーディオブックを配信して読書のハードルを下げ、この社会問題を解決したいと考えています。</p>
             </div>
           </div>    
         </div>
@@ -177,10 +176,10 @@ const Home = () => {
                     <a>
                       <TwitterIcon style={{ color: 'white' }} fontSize='large'/>
                     </a>
-                    <a href="https://www.facebook.com/hana.kanasugi">
+                    <a>
                       <FacebookIcon style={{ color: 'white' }} fontSize='large'/>
                     </a>
-                    <a href="https://www.linkedin.com/in/華-金杉-394506176/">
+                    <a>
                       <LinkedInIcon style={{ color: 'white' }} fontSize='large'/>
                     </a>
                   </div>
@@ -201,6 +200,26 @@ const Home = () => {
                       <FacebookIcon style={{ color: 'white' }} fontSize='large'/>
                     </a>
                     <a href="https://www.linkedin.com/in/yudai-yaguchi/">
+                      <LinkedInIcon style={{ color: 'white' }} fontSize='large'/>
+                    </a>
+                  </div>
+                </div>   
+              </div>
+            </div>
+            <div className='image-item'>
+              <img className='member-image' src={utkarshImage} alt="Naoto Image"/>
+              <div className='overlay'>
+                <div className="member-info">
+                  <div>ウトゥカーシュ・シン</div>
+                  <span>Software Engineer</span>
+                  <div className='social-icons'>
+                    <a>
+                      <TwitterIcon style={{ color: 'white' }} fontSize='large'/>
+                    </a>
+                    <a>
+                      <FacebookIcon style={{ color: 'white' }} fontSize='large'/>
+                    </a>
+                    <a>
                       <LinkedInIcon style={{ color: 'white' }} fontSize='large'/>
                     </a>
                   </div>
@@ -228,7 +247,7 @@ const Home = () => {
       </VisibilitySensor>
       <VisibilitySensor key='information' onChange={onChange('information')}>
         <div className='information' name='information' ref={informationRef}>
-          <div className='title'>企業情報</div>
+          <div className='title'>COMPANY</div>
           <div className='item-container'>
             <div className='item-title' >企業名</div>
             <div>スマートブックス株式会社（SmartBooks Inc.）</div>
@@ -238,20 +257,12 @@ const Home = () => {
             <div>冨田直人</div>
           </div>
           <div className='item-container'>
-            <div className='item-title'>所在地</div>
-            <div>東京都世田谷区南烏山５－１－１９</div>
-          </div>
-          <div className='item-container'>
             <div className='item-title'>事業内容</div>
             <div>アプリケーションの企画・開発・運営</div>
           </div>
           <div className='item-container'>
             <div className='item-title'>創立</div>
             <div>2021年3月19日</div>
-          </div>
-          <div className='item-container'>
-            <div className='item-title'>電話番号</div>
-            <div>070-8409-8610</div>
           </div>
         </div>
       </VisibilitySensor>
