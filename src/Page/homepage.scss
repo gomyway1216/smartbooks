@@ -70,7 +70,7 @@ body, html {
         text-align: center;
         .description-content {
           margin-top: 25px;
-          margin-bottom: 25px;
+          margin-bottom: 40px;
           .description-start {
             font-size: 25px;
           }
@@ -81,6 +81,7 @@ body, html {
 
           .description {
             font-size: 17px;
+            text-align: left;
           }
         }
       }
@@ -131,7 +132,14 @@ body, html {
       display: flex;
       flex-direction: column;
       align-self: center;
-      width: 70%;
+      width: 50%;
+    }
+    .mission-content-description-detail {
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      text-align: left;
+      width: 50%;
     }
   }
 }
@@ -160,7 +168,7 @@ body, html {
     }
 
     .image-item {
-      margin: 1%;
+      margin: 2%;
       width: 100%;
       max-width: 250px;
       position: relative;
