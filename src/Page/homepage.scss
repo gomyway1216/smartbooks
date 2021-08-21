@@ -235,6 +235,33 @@ body, html {
   }
 }
 
+
+.investors {
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: white;
+
+  .description {
+    margin-bottom: 10px;
+    width: 80%;
+    align-self: center;
+  }
+
+  .logo-list {
+    display: flex;
+    justify-content: center;
+    
+    .logo {
+      margin: 2%;
+      text-align: center; 
+    }
+  }
+}
+
+
 .support {
   padding-top: 70px;
   display: flex;
