@@ -12,6 +12,9 @@ import kumarImage from '../img/kumar.jpg';
 import hanaImage from '../img/hana.jpg';
 import yudaiImage from '../img/Yudai-memoji1.png';
 import utkarshImage from '../img/utkarsh.png';
+import abhishekImage from '../img/abhishek.png';
+import miraiseLogo from '../img/miraise.png';
+import miraiseLogoSmall from '../img/miraise.png';
 import googleLogo from '../img/google.svg';
 import googleLogoSmall from '../img/google-small.svg';
 import titLogo from '../img/TokyoTech.svg';
@@ -226,6 +229,37 @@ const Home = () => {
                 </div>   
               </div>
             </div>
+            <div className='image-item'>
+              <img className='member-image' src={abhishekImage} alt="Naoto Image"/>
+              <div className='overlay'>
+                <div className="member-info">
+                  <div>アビシェク・クマール</div>
+                  <span>Software Engineer</span>
+                  <div className='social-icons'>
+                    <a>
+                      <TwitterIcon style={{ color: 'white' }} fontSize='large'/>
+                    </a>
+                    <a>
+                      <FacebookIcon style={{ color: 'white' }} fontSize='large'/>
+                    </a>
+                    <a>
+                      <LinkedInIcon style={{ color: 'white' }} fontSize='large'/>
+                    </a>
+                  </div>
+                </div>   
+              </div>
+            </div>
+          </div>
+        </div>
+      </VisibilitySensor>
+      <VisibilitySensor key='investors' onChange={onChange('investors')}>
+        <div className='investors' name='investors'>
+          <div className='title'>INVESTORS</div>
+          <div className='logo-list'>
+            <a className='logo' href="https://startup.google.com" >
+              { width > 768 && <img src={miraiseLogo} alt="miraise Logo"/>}
+              { width <= 768 && <img src={miraiseLogoSmall} alt="miraise Logo"/>}
+            </a>
           </div>
         </div>
       </VisibilitySensor>
