@@ -12,8 +12,6 @@ import kumarImage from '../img/kumar.jpg';
 import hanaImage from '../img/hana.jpg';
 import yudaiImage from '../img/Yudai-memoji1.png';
 import utkarshImage from '../img/utkarsh.png';
-import abhishekImage from '../img/abhishek.png';
-import nekoImage from '../img/neko.png';
 import googleLogo from '../img/google.svg';
 import googleLogoSmall from '../img/google-small.svg';
 import titLogo from '../img/TokyoTech.svg';
@@ -192,7 +190,7 @@ const Home = () => {
               <img className='member-image' src={yudaiImage} alt="Naoto Image"/>
               <div className='overlay'>
                 <div className="member-info">
-                  <div>矢口 雄大</div>
+                  <div>矢口　雄大</div>
                   <span>Software Engineer</span>
                   <div className='social-icons'>
                     <a>
@@ -213,46 +211,6 @@ const Home = () => {
               <div className='overlay'>
                 <div className="member-info">
                   <div>ウトゥカルシュ・シング</div>
-                  <span>Software Engineer</span>
-                  <div className='social-icons'>
-                    <a>
-                      <TwitterIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                    <a>
-                      <FacebookIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                    <a>
-                      <LinkedInIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                  </div>
-                </div>   
-              </div>
-            </div>
-            <div className='image-item'>
-              <img className='member-image' src={abhishekImage} alt="Naoto Image"/>
-              <div className='overlay'>
-                <div className="member-info">
-                  <div>アビシェク・クマール</div>
-                  <span>Software Engineer</span>
-                  <div className='social-icons'>
-                    <a>
-                      <TwitterIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                    <a>
-                      <FacebookIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                    <a>
-                      <LinkedInIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                  </div>
-                </div>   
-              </div>
-            </div>
-            <div className='image-item'>
-              <img className='member-image' src={nekoImage} alt="Naoto Image"/>
-              <div className='overlay'>
-                <div className="member-info">
-                  <div>山口 ねこ</div>
                   <span>Software Engineer</span>
                   <div className='social-icons'>
                     <a>
