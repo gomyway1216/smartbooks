@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 import useWindowDimensions from '../Hook/useWindowDimensions';
 import { makeStyles, Button } from '@material-ui/core';
@@ -7,18 +7,18 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import { useRefContext } from '../Provider/RefProvider';
-import naotoImage from '../img/naoto.jpg';
-import kumarImage from '../img/kumar.jpg';
-import hanaImage from '../img/hana.jpg';
-import yudaiImage from '../img/Yudai-memoji1.png';
-import utkarshImage from '../img/utkarsh.png';
 import googleLogo from '../img/google.svg';
 import googleLogoSmall from '../img/google-small.svg';
 import titLogo from '../img/TokyoTech.svg';
 import titLogoSmall from '../img/TokyoTech-small.svg';
+import miraiseLogo from '../img/miraise.svg';
+import miraiseLogoSmall from '../img/miraise-small.svg';
 import smartbooksLogo from '../img/logo_smartbooks.png';
 import screenImage from '../img/screen1.png';
 import sampleAudio from '../sound/sample_botchan.mp3';
+import * as memberInfo from '../consts/memberInfo';
+import MemberDialog from '../Component/Dialog/MemberDialog';
+
 import './homepage.scss';
 
 const useStyles = makeStyles({
@@ -43,6 +43,8 @@ const Home = () => {
   const informationRef = useRef();
   const contactRef = useRef();
   const { width } = useWindowDimensions();
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogDisplayMember, setDialogDisplayMember] = useState('');
 
   useEffect(() => {
     const refList = [{ key: 'home', ref: homeRef } , { key: 'mission', ref: missionRef }, {key: 'contents', ref: contentsRef },
@@ -56,6 +58,15 @@ const Home = () => {
 
   const onChange = (itemName) => (isVisible) => {
     modifyDisplayedItemList(itemName, isVisible);
+  };
+
+  const handleMemberClick = (member) => {
+    setDialogOpen(true);
+    setDialogDisplayMember(member);
+  };
+
+  const handleDialogClose = () => {
+    setDialogOpen(false);
   };
 
   return (
@@ -126,106 +137,45 @@ const Home = () => {
         <div className='team' name='team' ref={teamRef}>
           <div className='title'>TEAM</div>
           <div className='team-images'>
-            <div className='image-item'>
-              <img className='member-image' src={naotoImage} alt="Naoto Image"/>
-              <div className='overlay'>
-                <div className="member-info">
-                  <div>冨田 直人</div>
-                  <span>Co-CEO ＆ Co-Founder</span>
-                  <div className='social-icons'>
-                    <a href="https://twitter.com/naoto_tomita">
-                      <TwitterIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                    <a href="https://www.facebook.com/naoto.tomita.7505">
-                      <FacebookIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                    <a href="https://www.linkedin.com/in/naoto-tomita-684b2b1a9/">
-                      <LinkedInIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
+            {memberInfo.getMemberList().map(member => (
+              <div className='image-item' key={member.name} onClick={() => handleMemberClick(member)}>
+                <img className='member-image' src={member.image} alt="Member Image"/>
+                <div className='overlay'>
+                  <div className="member-info">
+                    <div>{member.name}</div>
+                    <span>{member.title}</span>
+                    <div className='social-icons'>
+                      {member.twitter && 
+                        <a href={member.twitter}>
+                          <TwitterIcon style={{ color: 'white' }} fontSize='large'/>
+                        </a>
+                      }
+                      {member.facebook && 
+                        <a href={member.facebook}>
+                          <FacebookIcon style={{ color: 'white' }} fontSize='large'/>
+                        </a>
+                      }
+                      {member.linkedIn && 
+                        <a href={member.linkedIn}>
+                          <LinkedInIcon style={{ color: 'white' }} fontSize='large'/>
+                        </a>
+                      }
+                    </div>
                   </div>
-                </div>
-              </div>           
-            </div>
-            <div className='image-item'>
-              <img className='member-image' src={kumarImage} alt="Kumar Image"/>
-              <div className='overlay'>
-                <div className="member-info">
-                  <div>サウラブ・クマール</div>
-                  <span>Co-CEO ＆ Co-Founder</span>
-                  <div className='social-icons'>
-                    <a href="https://twitter.com/Saurabh190598">
-                      <TwitterIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                    <a href="https://www.facebook.com/saurabh0598">
-                      <FacebookIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                    <a href="https://www.linkedin.com/in/saurabh-kumar-82417a137/">
-                      <LinkedInIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                  </div>
-                </div>
-              </div>   
-            </div>
-            <div className='image-item'>
-              <img className='member-image' src={hanaImage} alt="Naoto Image"/>
-              <div className='overlay'>
-                <div className="member-info">
-                  <div>金杉 華</div>
-                  <span>Designer</span>
-                  <div className='social-icons'>
-                    <a>
-                      <TwitterIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                    <a>
-                      <FacebookIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                    <a>
-                      <LinkedInIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                  </div>
-                </div>   
+                </div>           
               </div>
-            </div>
-            <div className='image-item'>
-              <img className='member-image' src={yudaiImage} alt="Naoto Image"/>
-              <div className='overlay'>
-                <div className="member-info">
-                  <div>矢口　雄大</div>
-                  <span>Software Engineer</span>
-                  <div className='social-icons'>
-                    <a>
-                      <TwitterIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                    <a href="https://www.facebook.com/yaguchiyuudai">
-                      <FacebookIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                    <a href="https://www.linkedin.com/in/yudai-yaguchi/">
-                      <LinkedInIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                  </div>
-                </div>   
-              </div>
-            </div>
-            <div className='image-item'>
-              <img className='member-image' src={utkarshImage} alt="Naoto Image"/>
-              <div className='overlay'>
-                <div className="member-info">
-                  <div>ウトゥカルシュ・シング</div>
-                  <span>Software Engineer</span>
-                  <div className='social-icons'>
-                    <a>
-                      <TwitterIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                    <a>
-                      <FacebookIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                    <a>
-                      <LinkedInIcon style={{ color: 'white' }} fontSize='large'/>
-                    </a>
-                  </div>
-                </div>   
-              </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </VisibilitySensor>
+      <VisibilitySensor key='investors' onChange={onChange('investors')}>
+        <div className='investors' name='investors'>
+          <div className='title'>INVESTORS</div>
+          <div className='logo-list'>
+            <a className='logo' href="https://miraise.vc" >
+              { width > 768 && <img src={miraiseLogo} alt="Miraise Logo"/>}
+              { width <= 768 && <img src={miraiseLogoSmall} alt="Miraise Logo"/>}
+            </a>
           </div>
         </div>
       </VisibilitySensor>
@@ -284,7 +234,8 @@ const Home = () => {
         <div className='copyright'>
         &copy; Copyright <strong>SmartBooks Inc.</strong> All Rights Reserved
         </div>
-      </div>  
+      </div>
+      <MemberDialog item={dialogDisplayMember} open={dialogOpen} onClose={handleDialogClose} />
     </div>
   );
 };
