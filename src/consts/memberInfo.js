@@ -3,8 +3,9 @@ import kumarImage from '../img/kumar.jpg';
 import hanaImage from '../img/hana.jpg';
 import yudaiImage from '../img/Yudai-memoji1.png';
 import utkarshImage from '../img/utkarsh.png';
-import abhishekImage from '../img/abhishek.png';
+import abhishekImage from '../img/abhishek.jpg';
 import nekoImage from '../img/neko.png';
+import natsukiImage from '../img/natsuki.png';
 
 export const getMemberList = () => {
   const memberList = [
@@ -88,6 +89,17 @@ export const getMemberList = () => {
       'image': nekoImage,
       'description': `＃ QAエンジニア   
       ＃ 趣味は散歩と食事`
+    },
+    {
+      'name': '水野夏来 / Natsuki Mizuno',
+      'title': 'Software Engineer',
+      'twitter': 'https://twitter.com/natsuki_m777',
+      'facebook': null,
+      'linkedIn': null,
+      'image': natsukiImage,
+      'description': `＃自然言語処理   
+      ＃東京工業大学 学士２年   
+      ＃ 趣味はAR`
     },
   ];
   return memberList;
