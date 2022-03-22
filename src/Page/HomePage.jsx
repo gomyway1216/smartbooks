@@ -14,6 +14,8 @@ import titLogoSmall from '../img/TokyoTech-small.svg';
 import miraiseLogo from '../img/miraise.svg';
 import miraiseLogoSmall from '../img/miraise-small.svg';
 import smartbooksLogo from '../img/logo_smartbooks.png';
+import qxlvLogo from '../img/QXLV.svg';
+import qxlvLogoSmall from '../img/QXLV-small.svg';
 import screenImage from '../img/screen1.png';
 import sampleAudio from '../sound/sample_botchan.mp3';
 import * as memberInfo from '../consts/memberInfo';
@@ -175,6 +177,10 @@ const Home = () => {
             <a className='logo' href="https://miraise.vc" >
               { width > 768 && <img src={miraiseLogo} alt="Miraise Logo"/>}
               { width <= 768 && <img src={miraiseLogoSmall} alt="Miraise Logo"/>}
+            </a>
+            <a className='logo' href="https://qxlv.jp/" >
+              { width > 768 && <img src={qxlvLogo} alt="TIT Logo"/>}
+              { width <= 768 && <img src={qxlvLogoSmall} alt="TIT Logo"/>}
             </a>
           </div>
         </div>
